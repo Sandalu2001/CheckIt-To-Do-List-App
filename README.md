@@ -35,5 +35,5 @@ Contributions are welcome! If you encounter any issues or have suggestions for i
 
 ## Contact
 
-For any questions or inquiries, feel free to reach out to [your-email@example.com](mailto:sandalusankaja2001@gmail.com).
+For any questions or inquiries, feel free to reach out to (mailto:sandalusankaja2001@gmail.com).
 
