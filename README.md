@@ -2,6 +2,10 @@
 
 Checkit is a simple and intuitive to-do list web application built using Node.js, Express.js, EJS, HTML, CSS, and JavaScript. It provides users with a convenient platform to organize and manage their tasks effectively.
 
+## Deployment
+
+The Checkit application has been deployed using Heroku and is accessible at https://floating-citadel-80749.herokuapp.com. The deployment process involves the following steps:
+
 ## Features
 
 - Create and manage multiple to-do lists.
