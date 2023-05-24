@@ -1,10 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const date = require(__dirname+"/date.js");
-
+const mongoose = require("mongoose");
 const app = express();
-
-console.log(date);
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.set('view engine','ejs');
@@ -13,6 +11,23 @@ app.use(express.static("public"));
 
 var items = [];
 var workItems = [];
+
+console.log(date);
+
+mongoose.connect("mongodb://localhost:27017/toDoListDB",{useNewUrlParser : true})
+    .then(()=>{
+        console.log("Database is connected!");
+    })
+    .catch((err)=>{
+        console.log(err);
+    });
+
+const toDoListSchema = new mongoose.Schema({
+    name : String
+});
+
+const Item = mongoose.model("Item",toDoListSchema);
+
 
 app.get("/",function(req,res){
 
@@ -32,7 +47,7 @@ app.get("/work",function(req,res){
 
 //Home route
 app.post("/",function(req,res){
-    var item = req.body.newItem;
+    const item = req.body.newItem;
 
     if(req.body.button === "Work"){
         workItems.push(item);
@@ -40,6 +55,11 @@ app.post("/",function(req,res){
     }
     else{
         items.push(item);
+        doListItem = new Item({
+            name : item
+        });
+        doListItem.save();
+
         res.redirect("/");
     }
     
